@@ -1,0 +1,30 @@
+{
+  "_note": "The offline demo. python -m fdlab.demo writes runs/demo from hand-made variants of the Tip Jar reference (each with injected faults) and tests them for real. The models are fictional and nothing is ever sent: the generator refuses --send for a demo config.",
+  "title": "Demo run: Tip Jar",
+  "demo": true,
+  "targets": [
+    {
+      "id": "tipjar",
+      "name": "Tip Jar (Solidity)",
+      "language": "solidity",
+      "prompt": "specs/tip-jar/prompt.md",
+      "runner": "forge",
+      "harness": "specs/tip-jar/harness"
+    }
+  ],
+  "settings": {
+    "OFF-T0.2": {"reasoning": {"enabled": false}, "temperature": 0.2},
+    "ON-HIGH": {"reasoning": {"enabled": true, "effort": "high"}}
+  },
+  "models": [
+    {"id": "demo-lab-a/alpha-coder", "provider": "Demo Cloud", "price_in": 0.2, "price_out": 0.8, "max_output": 65536},
+    {"id": "demo-lab-b/beta-instruct", "provider": "Demo Cloud", "price_in": 0.5, "price_out": 1.5, "max_output": 65536},
+    {"id": "demo-lab-c/gamma-reasoner", "provider": "Demo Cloud", "price_in": 1.0, "price_out": 4.0, "max_output": 65536},
+    {"id": "demo-lab-d/delta-mini", "provider": "Demo Cloud", "price_in": 0.1, "price_out": 0.4, "max_output": 65536}
+  ],
+  "samples": 3,
+  "max_tokens": 32768,
+  "cap_usd": 1,
+  "out_dir": "runs/demo",
+  "test_timeout_s": 600
+}

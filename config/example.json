@@ -1,0 +1,58 @@
+{
+  "_note": "A starting point for a real run. Check every model's provider, prices ($ per million tokens) and max_output on openrouter.ai/<model id> before sending: the generator uses them for its worst-case budget check.",
+  "title": "Tip Jar, three cheap models",
+  "targets": [
+    {
+      "id": "tipjar",
+      "name": "Tip Jar (Solidity)",
+      "language": "solidity",
+      "prompt": "specs/tip-jar/prompt.md",
+      "runner": "forge",
+      "harness": "specs/tip-jar/harness"
+    }
+  ],
+  "settings": {
+    "OFF-T0.2": {"reasoning": {"enabled": false}, "temperature": 0.2},
+    "OFF-T0.8": {"reasoning": {"enabled": false}, "temperature": 0.8},
+    "ON-LOW": {"reasoning": {"enabled": true, "effort": "low"}},
+    "ON-HIGH": {"reasoning": {"enabled": true, "effort": "high"}}
+  },
+  "models": [
+    {
+      "id": "mistralai/mistral-small-2603",
+      "provider": "Mistral",
+      "provider_tag": "mistral",
+      "price_in": 0.15,
+      "price_out": 0.6,
+      "max_output": 131072,
+      "reasoning_efforts": ["high", "none"],
+      "skip_settings": ["ON-LOW"]
+    },
+    {
+      "id": "z-ai/glm-5.3-flash",
+      "provider": "Z.AI",
+      "provider_tag": "z-ai/fp8",
+      "price_in": 0.15,
+      "price_out": 0.5,
+      "max_output": 131072,
+      "reasoning_efforts": ["max", "high", "low"],
+      "skip_settings": ["OFF-T0.2", "OFF-T0.8"]
+    },
+    {
+      "id": "google/gemini-3.1-flash-lite",
+      "provider": "Google AI Studio",
+      "provider_tag": "google-ai-studio",
+      "price_in": 0.25,
+      "price_out": 1.5,
+      "max_output": 65536,
+      "reasoning_efforts": ["high", "medium", "low", "minimal", "none"]
+    }
+  ],
+  "samples": 3,
+  "max_tokens": 32768,
+  "cap_usd": 2,
+  "out_dir": "runs/example",
+  "request_timeout_s": 3600,
+  "read_timeout_s": null,
+  "test_timeout_s": 1800
+}

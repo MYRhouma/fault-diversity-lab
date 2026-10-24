@@ -1,0 +1,5 @@
+{
+  // KeyValue takes [label, value] pairs and keys each row by its label, so JSX inside those
+  // pairs is data, not a rendered list. jsx-key only reports false positives here.
+  "rules": { "react/jsx-key": "off" }
+}

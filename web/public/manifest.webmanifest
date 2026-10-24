@@ -1,0 +1,27 @@
+{
+  "id": "./",
+  "name": "Fault Diversity Lab",
+  "short_name": "Fault Lab",
+  "description": "Dashboard for a fault-diversity run: how independently generated program versions fail, and whether they fail together.",
+  "lang": "en",
+  "dir": "ltr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": ["window-controls-overlay", "standalone"],
+  "orientation": "any",
+  "background_color": "#ffffff",
+  "theme_color": "#1a56c9",
+  "categories": ["education", "developer", "productivity"],
+  "icons": [
+    { "src": "favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "pwa-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "pwa-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "pwa-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "Results matrix", "url": "./run/matrix", "icons": [{ "src": "pwa-192.png", "sizes": "192x192" }] },
+    { "name": "Faults and failures", "url": "./run/failures", "icons": [{ "src": "pwa-192.png", "sizes": "192x192" }] },
+    { "name": "Run log", "url": "./run/log", "icons": [{ "src": "pwa-192.png", "sizes": "192x192" }] }
+  ]
+}

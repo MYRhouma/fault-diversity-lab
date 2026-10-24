@@ -1,0 +1,25 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+
+# Web
+node_modules/
+web/dist/
+
+# Run folders and build output (forge out/ and cache/, Gradle build/)
+runs/
+out/
+cache/
+build/
+.gradle/
+
+# Secrets
+.env
+
+# Editors and OS
+.idea/
+.vscode/
+.DS_Store

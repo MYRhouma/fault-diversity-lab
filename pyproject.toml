@@ -1,0 +1,33 @@
+[project]
+name = "fault-diversity-lab"
+version = "0.1.0"
+description = "Measure the fault diversity of LLM-generated programs: generate N versions, test them, and see whether majority voting helps."
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.115",
+    "uvicorn>=0.30",
+    "httpx>=0.27",
+    "matplotlib>=3.9",
+]
+
+[dependency-groups]
+dev = ["pytest>=8", "ruff>=0.6"]
+
+[tool.uv]
+package = false
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+filterwarnings = ["ignore:Using .httpx. with .starlette.testclient"]  # starlette notice, not ours
+
+[tool.ruff]
+line-length = 130
+target-version = "py311"
+extend-exclude = ["specs/*/harness/lib", "web"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B", "RUF"]
+ignore = ["RUF001"]  # the dashboard text uses typographic symbols (…)
